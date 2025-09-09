@@ -1,338 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Shop</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Shop</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+    </style>
 </head>
 <body class="min-h-screen flex flex-col">
-    <!-- Main Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Brand Name -->
-            <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('products')">
-                <span class="text-2xl font-bold text-gray-800">My Shop</span>
-            </div>
-            <!-- Navigation Icons -->
-            <div class="flex items-center space-x-6">
-                <button id="cart-btn" class="relative text-gray-600 hover:text-gray-800 transition-colors" onclick="navigateTo('cart')">
-                    <i class="fas fa-shopping-cart text-xl"></i>
-                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                </button>
-                <button id="profile-btn" class="text-gray-600 hover:text-gray-800 transition-colors" onclick="navigateTo('profile')">
-                    <i class="fas fa-user-circle text-xl"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+        <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+                        <div class="flex items-center space-x-2 cursor-pointer" onclick="navigateTo('products')">
+                <span class="text-2xl font-bold text-gray-800">My Shop</span>
+            </div>
+                        <div class="flex items-center space-x-6">
+                <button id="cart-btn" class="relative text-gray-600 hover:text-gray-800 transition-colors" onclick="navigateTo('cart')">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                </button>
+                <button id="profile-btn" class="text-gray-600 hover:text-gray-800 transition-colors" onclick="navigateTo('profile')">
+                    <i class="fas fa-user-circle text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-4 py-8 flex-grow">
-        <!-- Products Section -->
-        <section id="products-page" class="page">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Featured Products</h1>
-            <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Product cards will be dynamically inserted here by JavaScript -->
-            </div>
-        </section>
+        <main class="container mx-auto px-4 py-8 flex-grow">
+                <section id="products-page" class="page">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Featured Products</h1>
+            <div id="product-list" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            </div>
+        </section>
 
-        <!-- Cart Section -->
-        <section id="cart-page" class="page hidden">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Shopping Cart</h1>
-            <div id="cart-container" class="bg-white p-6 rounded-lg shadow-lg">
-                <div id="cart-items" class="divide-y divide-gray-200">
-                    <!-- Cart items will be dynamically inserted here -->
-                </div>
-                <div id="cart-summary" class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
-                    <span class="text-xl font-bold text-gray-800">Total:</span>
-                    <span id="cart-total" class="text-2xl font-bold text-gray-900">$0.00</span>
-                </div>
-                <div class="mt-8 flex justify-end">
-                    <button class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors" onclick="navigateTo('payment')">Proceed to Checkout</button>
-                </div>
-            </div>
-        </section>
+                <section id="cart-page" class="page hidden">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Shopping Cart</h1>
+            <div id="cart-container" class="bg-white p-6 rounded-lg shadow-lg">
+                <div id="cart-items" class="divide-y divide-gray-200">
+                                    </div>
+                <div id="cart-summary" class="mt-6 pt-4 border-t border-gray-200 flex justify-between items-center">
+                    <span class="text-xl font-bold text-gray-800">Total:</span>
+                    <span id="cart-total" class="text-2xl font-bold text-gray-900">€0.00</span>
+                </div>
+                <div class="mt-8 flex justify-end">
+                    <button class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors" onclick="navigateTo('payment')">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
 
-        <!-- Profile Section -->
-        <section id="profile-page" class="page hidden">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Profile</h1>
-            <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-                <div class="space-y-4">
-                    <div>
-                        <label for="profile-name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="profile-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
-                    </div>
-                    <div>
-                        <label for="profile-email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="profile-email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
-                    </div>
-                    <div>
-                        <label for="profile-address" class="block text-sm font-medium text-gray-700">Address</label>
-                        <textarea id="profile-address" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"></textarea>
-                    </div>
-                </div>
-                <div class="mt-6 flex justify-end">
-                    <button class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors" onclick="saveProfile()">Save Profile</button>
-                </div>
-            </div>
-        </section>
+                <section id="profile-page" class="page hidden">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Your Profile</h1>
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+                <div class="space-y-4">
+                    <div>
+                        <label for="profile-name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="profile-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
+                    </div>
+                    <div>
+                        <label for="profile-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="profile-email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2">
+                    </div>
+                    <div>
+                        <label for="profile-address" class="block text-sm font-medium text-gray-700">Address</label>
+                        <textarea id="profile-address" rows="3" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2"></textarea>
+                    </div>
+                </div>
+                <div class="mt-6 flex justify-end">
+                    <button class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 transition-colors" onclick="saveProfile()">Save Profile</button>
+                </div>
+            </div>
+        </section>
 
-        <!-- Payment Section -->
-        <section id="payment-page" class="page hidden">
-            <h1 class="text-3xl font-bold text-gray-800 mb-6">Checkout</h1>
-            <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
-                <div id="payment-summary" class="mb-6 p-4 bg-gray-50 rounded-lg">
-                    <h3 class="text-lg font-bold mb-2">Order Summary</h3>
-                    <div class="flex justify-between text-gray-700">
-                        <span>Items:</span>
-                        <span id="payment-items-total"></span>
-                    </div>
-                    <div class="flex justify-between text-gray-700">
-                        <span>Shipping:</span>
-                        <span>Free</span>
-                    </div>
-                    <div class="flex justify-between mt-2 pt-2 border-t border-gray-200 font-bold text-gray-900 text-xl">
-                        <span>Total:</span>
-                        <span id="payment-total"></span>
-                    </div>
-                </div>
-                <form id="payment-form">
-                    <div class="space-y-4">
-                        <div>
-                            <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
-                            <input type="text" id="card-number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="XXXX-XXXX-XXXX-XXXX">
-                        </div>
-                        <div class="flex space-x-4">
-                            <div class="w-1/2">
-                                <label for="expiry-date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
-                                <input type="text" id="expiry-date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="MM/YY">
-                            </div>
-                            <div class="w-1/2">
-                                <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
-                                <input type="text" id="cvv" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="XXX">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <button type="submit" class="w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors">Pay Now</button>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
+                <section id="payment-page" class="page hidden">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6">Checkout</h1>
+            <div class="bg-white p-6 rounded-lg shadow-lg max-w-lg mx-auto">
+                <div id="payment-summary" class="mb-6 p-4 bg-gray-50 rounded-lg">
+                    <h3 class="text-lg font-bold mb-2">Order Summary</h3>
+                    <div class="flex justify-between text-gray-700">
+                        <span>Items:</span>
+                        <span id="payment-items-total"></span>
+                    </div>
+                    <div class="flex justify-between text-gray-700">
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div class="flex justify-between mt-2 pt-2 border-t border-gray-200 font-bold text-gray-900 text-xl">
+                        <span>Total:</span>
+                        <span id="payment-total"></span>
+                    </div>
+                </div>
+                <form id="payment-form">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="card-number" class="block text-sm font-medium text-gray-700">Card Number</label>
+                            <input type="text" id="card-number" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="XXXX-XXXX-XXXX-XXXX">
+                        </div>
+                        <div class="flex space-x-4">
+                            <div class="w-1/2">
+                                <label for="expiry-date" class="block text-sm font-medium text-gray-700">Expiry Date</label>
+                                <input type="text" id="expiry-date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="MM/YY">
+                            </div>
+                            <div class="w-1/2">
+                                <label for="cvv" class="block text-sm font-medium text-gray-700">CVV</label>
+                                <input type="text" id="cvv" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" placeholder="XXX">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <button type="submit" class="w-full px-6 py-3 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition-colors">Pay Now</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <!-- Modal for messages (e.g., success message) -->
-    <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
-            <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
-            <p id="modal-message" class="mb-6"></p>
-            <button class="px-6 py-2 bg-indigo-600 text-white rounded-lg" onclick="closeModal()">Close</button>
-        </div>
-    </div>
+        <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
+            <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
+            <p id="modal-message" class="mb-6"></p>
+            <button class="px-6 py-2 bg-indigo-600 text-white rounded-lg" onclick="closeModal()">Close</button>
+        </div>
+    </div>
 
-    <!-- JavaScript -->
-    <script>
-        // --- DATA ---
-        let products = [
-            { id: 1, name: 'Vintage Camera', price: 299.99, image: 'https://placehold.co/400x300/FEE2E2/EF4444?text=Camera', description: 'Capture moments with this classic film camera.' },
-            { id: 2, name: 'Wireless Headphones', price: 129.50, image: 'https://placehold.co/400x300/DBEAFE/3B82F6?text=Headphones', description: 'High-quality sound with seamless wireless connectivity.' },
-            { id: 3, name: 'Smart Watch', price: 199.00, image: 'https://placehold.co/400x300/D1FAE5/10B981?text=Smart+Watch', description: 'Track your fitness and stay connected on the go.' },
-            { id: 4, name: 'Leather Backpack', price: 89.99, image: 'https://placehold.co/400x300/E5E7EB/6B7280?text=Backpack', description: 'Stylish and durable, perfect for everyday use.' },
-            { id: 5, name: 'Espresso Machine', price: 450.00, image: 'https://placehold.co/400x300/FCE7F3/EC4899?text=Coffee+Maker', description: 'Brew professional-grade coffee in your home.' },
-            { id: 6, name: 'Mechanical Keyboard', price: 75.00, image: 'https://placehold.co/400x300/FFEFD5/F97316?text=Keyboard', description: 'A tactile and responsive typing experience.' },
-            { id: 7, name: 'Bluetooth Speaker', price: 55.75, image: 'https://placehold.co/400x300/E0E7FF/4F46E5?text=Speaker', description: 'Compact and powerful speaker for music on the go.' },
-            { id: 8, name: 'Gaming Mouse', price: 49.99, image: 'https://placehold.co/400x300/D1D5DB/4B5563?text=Mouse', description: 'Precision and speed for a superior gaming experience.' }
-        ];
-
-        let cart = [];
-        let userProfile = {
-            name: 'John Doe',
-            email: 'john.doe@example.com',
-            address: '123 E-commerce Street, Shoppingville'
-        };
-
-        // --- DOM ELEMENTS ---
-        const productList = document.getElementById('product-list');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartTotalSpan = document.getElementById('cart-total');
-        const cartCountSpan = document.getElementById('cart-count');
-        const pages = document.querySelectorAll('.page');
-        const profileNameInput = document.getElementById('profile-name');
-        const profileEmailInput = document.getElementById('profile-email');
-        const profileAddressTextarea = document.getElementById('profile-address');
-        const paymentItemsTotalSpan = document.getElementById('payment-items-total');
-        const paymentTotalSpan = document.getElementById('payment-total');
-        const paymentForm = document.getElementById('payment-form');
-        const messageModal = document.getElementById('message-modal');
-        const modalTitle = document.getElementById('modal-title');
-        const modalMessage = document.getElementById('modal-message');
-
-        // --- NAVIGATION ---
-        function navigateTo(pageId) {
-            pages.forEach(page => {
-                page.classList.add('hidden');
-            });
-            document.getElementById(pageId + '-page').classList.remove('hidden');
-
-            // Update content based on the destination page
-            if (pageId === 'cart') {
-                renderCart();
-            } else if (pageId === 'profile') {
-                renderProfile();
-            } else if (pageId === 'payment') {
-                renderPayment();
-            }
-        }
-
-        // --- PRODUCT RENDERING ---
-        function renderProducts() {
-            productList.innerHTML = '';
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105';
-                productCard.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover rounded-lg mb-4">
-                    <h2 class="text-xl font-semibold text-gray-900 mb-2">${product.name}</h2>
-                    <p class="text-gray-600 text-sm mb-4">${product.description}</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-2xl font-bold text-gray-800">$${product.price.toFixed(2)}</span>
-                        <button onclick="addToCart(${product.id})" class="px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-md hover:bg-indigo-700 transition-colors">Add to Cart</button>
-                    </div>
-                `;
-                productList.appendChild(productCard);
-            });
-        }
-
-        // --- CART LOGIC ---
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const cartItem = cart.find(item => item.id === productId);
-
-            if (cartItem) {
-                cartItem.quantity += 1;
-            } else {
-                cart.push({ ...product, quantity: 1 });
-            }
-            updateCartCount();
-            showMessageModal('Added to Cart', `${product.name} has been added to your cart.`);
-        }
-
-        function renderCart() {
-            cartItemsContainer.innerHTML = '';
-            let total = 0;
-            if (cart.length === 0) {
-                cartItemsContainer.innerHTML = '<p class="text-center text-gray-500">Your cart is empty.</p>';
-                cartTotalSpan.textContent = '$0.00';
-                return;
-            }
-
-            cart.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'flex items-center space-x-4 py-4';
-                cartItemElement.innerHTML = `
-                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-md">
-                    <div class="flex-grow">
-                        <h3 class="font-semibold text-gray-900">${item.name}</h3>
-                        <p class="text-gray-600 text-sm">$${item.price.toFixed(2)}</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <button onclick="updateQuantity(${item.id}, -1)" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors">-</button>
-                        <span class="font-medium w-6 text-center">${item.quantity}</span>
-                        <button onclick="updateQuantity(${item.id}, 1)" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-colors">+</button>
-                    </div>
-                    <span class="font-bold text-gray-900 w-20 text-right">$${itemTotal.toFixed(2)}</span>
-                    <button onclick="removeFromCart(${item.id})" class="text-red-500 hover:text-red-700 transition-colors">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                `;
-                cartItemsContainer.appendChild(cartItemElement);
-            });
-            cartTotalSpan.textContent = `$${total.toFixed(2)}`;
-        }
-
-        function updateQuantity(productId, change) {
-            const item = cart.find(i => i.id === productId);
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeFromCart(productId);
-                } else {
-                    renderCart();
-                }
-            }
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCartCount();
-            renderCart();
-        }
-
-        function updateCartCount() {
-            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCountSpan.textContent = count;
-        }
-
-        // --- PROFILE LOGIC ---
-        function renderProfile() {
-            profileNameInput.value = userProfile.name;
-            profileEmailInput.value = userProfile.email;
-            profileAddressTextarea.value = userProfile.address;
-        }
-
-        function saveProfile() {
-            userProfile.name = profileNameInput.value;
-            userProfile.email = profileEmailInput.value;
-            userProfile.address = profileAddressTextarea.value;
-            showMessageModal('Profile Saved', 'Your profile information has been updated successfully.');
-        }
-
-        // --- PAYMENT LOGIC ---
-        function renderPayment() {
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            paymentItemsTotalSpan.textContent = `$${total.toFixed(2)}`;
-            paymentTotalSpan.textContent = `$${total.toFixed(2)}`;
-            paymentForm.reset();
-        }
-
-        paymentForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            // In a real application, you would process the payment here.
-            // For this demo, we'll simulate a successful payment.
-            showMessageModal('Payment Successful!', 'Thank you for your purchase. Your order has been placed.');
-            cart = []; // Clear the cart after payment
-            updateCartCount();
-            navigateTo('products');
-        });
-
-        // --- MODAL LOGIC ---
-        function showMessageModal(title, message) {
-            modalTitle.textContent = title;
-            modalMessage.textContent = message;
-            messageModal.classList.remove('hidden');
-        }
-
-        function closeModal() {
-            messageModal.classList.add('hidden');
-        }
-
-        // Initial render on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            updateCartCount();
-        });
-    </script>
-</body>
-</html>
+        <script>
+        // --- DATA ---
+        let products = [
+            { id: 1, name: 'Vintage Camera', price: 299.99, image: 'https://placehold.co/400x300/FEE2E2/EF4444?text=Camera', description: 'Capture moments with this classic film camera.' },
+            { id: 2, name: 'Wireless Headphones', price: 129.50, image: 'https://placehold.co/400x300/DBEAFE/3B82F6?text=Headphones', description: 'High-quality sound with seamless wireless connectivity.' },
+            { id: 3, name: 'Smart Watch', price: 199.00, image: 'https://placehold.co/400x300/D1FAE5/10B981?text=Smart+Watch', description: 'Track your fitness and stay connected on the go.' },
+            { id: 4, name: 'Leather Backpack', price: 89.99, image: '
